@@ -1,0 +1,301 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+
+    srand(time(NULL));
+
+    int peniaze;
+    int stavka;
+
+    printf("Kolko penazi chces? ");
+    scanf("%d", &peniaze);
+
+    while (peniaze > 0)
+    {
+
+        printf("\nMas %d eur\n", peniaze);
+
+        printf("Kolko chces stavit? ");
+        scanf("%d", &stavka);
+
+        if (stavka > peniaze || stavka <= 0)
+        {
+            printf("Zla stavka!\n");
+            continue;
+        }
+
+        int hrac = 0;
+        int dealer = 0;
+
+        int esoHrac = 0;
+        int esoDealer = 0;
+
+        char volba;
+
+        // karty hraca
+        int karta1 = rand() % 13 + 1;
+        int karta2 = rand() % 13 + 1;
+        // dealer karty
+        int dealer1 = rand() % 13 + 1;
+        int dealer2 = rand() % 13 + 1;
+
+
+
+        if (dealer1 > 10)
+        {
+            dealer1 = 10;
+        }
+
+        if (dealer2 > 10)
+        {
+            dealer2 = 10;
+        }
+
+        if (dealer1 == 1)
+        {
+            dealer1 = 11;
+            esoDealer++;
+        }
+
+        if (dealer2 == 1)
+        {
+            dealer2 = 11;
+            esoDealer++;
+        }
+
+        dealer = dealer1 + dealer2;
+
+        while (dealer > 21 && esoDealer > 0)
+        {
+            dealer -= 10;
+            esoDealer--;
+        }
+
+ printf("\nDealerove karty: %d,# ", dealer1);
+        // vypis hraca
+        if (karta1 == 1)
+        {
+            printf("\nTvoja prva karta A");
+        }
+
+         if (karta1 == 11)
+        {
+            printf("\nTvoja prva karta J");
+        }
+         if (karta1 == 12)
+        {
+            printf("\nTvoja prva karta Q");
+        }
+         if (karta1 == 13)
+        {
+            printf("\nTvoja prva karta K");
+        }
+       if (karta1 < 11 && karta1 > 1)
+
+        {
+           printf("\nTvoja prva karta: %d,", karta1);
+        }
+//karta 2
+if (karta2 == 1)
+        {
+            printf("\nTvoja druha karta A");
+        }
+
+       if (karta2==11)
+        {
+            printf("\nTvoja druha karta J");
+        }
+         if (karta2 == 12)
+        {
+            printf("\nTvoja druha karta Q");
+        }
+         if (karta2 == 13)
+        {
+            printf("\nTvoja druha karta K");
+        }
+           if (karta2 < 11 && karta2 > 1)
+        {
+           printf("\nTvoja druha karta: %d,", karta2);
+        }
+         // J Q K = 10
+        if (karta1 > 10)
+
+
+            // ESO hrac
+        if (karta1 == 1)
+        {
+            karta1 = 11;
+            esoHrac++;
+        }
+
+        if (karta2 == 1)
+        {
+            karta2 = 11;
+            esoHrac++;
+        }
+
+
+
+
+        // oprava ESA
+        while (hrac > 21 && esoHrac > 0)
+        {
+            hrac -= 10;
+            esoHrac--;
+        }
+        {
+            karta1 = 10;
+        }
+
+        if (karta2 > 10)
+        {
+            karta2 = 10;
+        }
+
+
+
+
+
+         hrac = karta1 + karta2;
+
+        printf("\nDokopy: %d\n", hrac);
+
+        // HRAC HRA
+        while (1)
+        {
+
+            if (hrac > 21)
+            {
+                printf("Prehral si!\n");
+                peniaze -= stavka;
+                break;
+            }
+
+            printf("Chces dalsiu kartu? -n pre nie): ");
+            scanf(" %c", &volba);
+
+            if (volba == 'n')
+            {
+                break;
+            }
+
+            int novaKarta =rand() % 13 + 1;
+
+
+
+            if (novaKarta == 1)
+        {
+            printf("\nTvoja karta A");
+        }
+
+       if (novaKarta==11)
+        {
+            printf("\nTvoja karta J");
+        }
+         if (novaKarta == 12)
+        {
+            printf("\nTvoja karta Q");
+        }
+         if (novaKarta == 13)
+        {
+            printf("\nTvoja karta K");
+        }
+           if (novaKarta < 11 && novaKarta > 1)
+        {
+           printf("\nTvoja karta: %d,", karta2);
+        }
+         // J Q K = 10
+        if (novaKarta > 10)
+
+
+            // ESO hrac
+        if (novaKarta == 1)
+        {
+            novaKarta = 11;
+            esoHrac++;
+        }
+
+            hrac += novaKarta;
+
+            while (hrac > 21 && esoHrac > 0)
+            {
+                hrac -= 10;
+                esoHrac--;
+            }
+
+
+            printf("\nNove skore: %d\n", hrac);
+        }
+
+        // ak prehral
+        if (hrac > 21)
+        {
+            continue;
+        }
+
+        // DEALER HRA
+        printf("\nDealerove karty: %d, %d", dealer1, dealer2);
+        printf("   Dokopy: %d\n", dealer);
+
+        while (dealer < 16)
+        {
+
+            int novaDealer = rand() % 13 + 1;
+
+
+
+            if (novaDealer > 10)
+            {
+                novaDealer = 10;
+            }
+            if (novaDealer == 1)
+            {
+                novaDealer = 11;
+                esoDealer++;
+            }
+
+            dealer += novaDealer;
+
+            while (dealer > 21 && esoDealer > 0)
+            {
+                dealer -= 10;
+                esoDealer--;
+            }
+
+            printf("Dealer potiahol: %d\n", novaDealer);
+            printf("Dealer ma: %d\n", dealer);
+        }
+
+        // VYSLEDOK
+        printf("\nTvoje skore: %d\n", hrac);
+        printf("Dealer skore: %d\n", dealer);
+
+        if (dealer > 21 || hrac > dealer)
+        {
+
+            printf("Vyhral si!\n");
+            peniaze += stavka;
+
+        }
+        else if (dealer > hrac)
+        {
+
+            printf("Prehral si!\n");
+            peniaze -= stavka;
+
+        }
+        else
+        {
+
+            printf("Remiza!\n");
+        }
+    }
+
+    printf("\nDosli ti peniaze. Koniec hry.\n");
+
+    return 0;
+
+}
