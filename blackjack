@@ -75,6 +75,10 @@ int main()
         }
 
  printf("\nDealerove karty: %d,# ", dealer1);
+        
+        
+        
+        
         // vypis hraca
         if (karta1 == 1)
         {
@@ -121,7 +125,7 @@ if (karta2 == 1)
            printf("\nTvoja druha karta: %d,", karta2);
         }
          // J Q K = 10
-        if (karta1 > 10)
+       // if (karta1 > 10)
 
 
             // ESO hrac
@@ -146,18 +150,7 @@ if (karta2 == 1)
             hrac -= 10;
             esoHrac--;
         }
-        {
-            karta1 = 10;
-        }
-
-        if (karta2 > 10)
-        {
-            karta2 = 10;
-        }
-
-
-
-
+    
 
          hrac = karta1 + karta2;
 
@@ -237,6 +230,14 @@ if (karta2 == 1)
         }
 
         // DEALER HRA
+        
+        
+        
+        
+        
+        
+        
+        
         printf("\nDealerove karty: %d, %d", dealer1, dealer2);
         printf("   Dokopy: %d\n", dealer);
 
