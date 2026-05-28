@@ -3,6 +3,7 @@
 
 int main()
 {
+     printf("\nHazardne hry predstavuju riziko vysokych financnych strat a ich nadmerne hranie riziko vzniku zavislosti\n");// to som opisal z TIPSPORT reklami
 
 
     srand(time(NULL));
@@ -36,49 +37,39 @@ int main()
         char volba;
 
         // karty hraca
-        int karta1 = rand() % 13 + 1;
-        int karta2 = rand() % 13 + 1;
+        int karta1 =rand() % 13 + 1;
+        int karta2 =rand() % 13 + 1;
         // dealer karty
         int dealer1 = rand() % 13 + 1;
         int dealer2 = rand() % 13 + 1;
 
 
 
-        if (dealer1 > 10)
+         if (dealer1 == 1)
         {
-            dealer1 = 10;
+            printf("\nDealerove karty: A,#");
         }
 
-        if (dealer2 > 10)
+         if (dealer1 == 11)
         {
-            dealer2 = 10;
+            printf("\nDealerove karty: J,#");
+        }
+         if (dealer1 == 12)
+        {
+            printf("\nDealerove karty: Q,#");
+        }
+         if (dealer1 == 13)
+        {
+            printf("\nDealerove karty: K,#");
+        }
+       if (dealer1 < 11 && dealer1 > 1)
+
+        {
+           printf("\nDealerove karty: %d,#,", dealer1);
         }
 
-        if (dealer1 == 1)
-        {
-            dealer1 = 11;
-            esoDealer++;
-        }
 
-        if (dealer2 == 1)
-        {
-            dealer2 = 11;
-            esoDealer++;
-        }
 
-        dealer = dealer1 + dealer2;
-
-        while (dealer > 21 && esoDealer > 0)
-        {
-            dealer -= 10;
-            esoDealer--;
-        }
-
- printf("\nDealerove karty: %d,# ", dealer1);
-        
-        
-        
-        
         // vypis hraca
         if (karta1 == 1)
         {
@@ -125,7 +116,15 @@ if (karta2 == 1)
            printf("\nTvoja druha karta: %d,", karta2);
         }
          // J Q K = 10
-       // if (karta1 > 10)
+       if (karta1 > 10)
+        {
+           karta1 = 10;
+        }
+       if (karta2 > 10)
+        {
+           karta2 = 10;
+        }
+
 
 
             // ESO hrac
@@ -142,7 +141,7 @@ if (karta2 == 1)
         }
 
 
-
+hrac = karta1 + karta2;
 
         // oprava ESA
         while (hrac > 21 && esoHrac > 0)
@@ -150,9 +149,9 @@ if (karta2 == 1)
             hrac -= 10;
             esoHrac--;
         }
-    
 
-         hrac = karta1 + karta2;
+
+
 
         printf("\nDokopy: %d\n", hrac);
 
@@ -198,12 +197,14 @@ if (karta2 == 1)
         }
            if (novaKarta < 11 && novaKarta > 1)
         {
-           printf("\nTvoja karta: %d,", karta2);
+           printf("\nTvoja karta: %d,", novaKarta);
         }
          // J Q K = 10
-        if (novaKarta > 10)
+        if (novaKarta > 10){
+          novaKarta=10;
+        }
 
-
+ hrac += novaKarta;
             // ESO hrac
         if (novaKarta == 1)
         {
@@ -211,7 +212,7 @@ if (karta2 == 1)
             esoHrac++;
         }
 
-            hrac += novaKarta;
+
 
             while (hrac > 21 && esoHrac > 0)
             {
@@ -230,15 +231,82 @@ if (karta2 == 1)
         }
 
         // DEALER HRA
-        
-        
-        
-        
-        
-        
-        
-        
-        printf("\nDealerove karty: %d, %d", dealer1, dealer2);
+  if (dealer1 == 1)
+        {
+            printf("\nDealerova prva karta A");
+        }
+
+         if (dealer1 == 11)
+        {
+            printf("\nDealerova prva karta J");
+        }
+         if (dealer1 == 12)
+        {
+            printf("\nDealerova prva karta Q");
+        }
+         if (dealer1 == 13)
+        {
+            printf("\nDealerova prva karta K");
+        }
+       if (dealer1 < 11 && dealer1 > 1)
+
+        {
+           printf("\nDealerova prva karta: %d,", dealer1);
+        }
+//karta 2
+if (dealer2 == 1)
+        {
+            printf("\nDealerova druha karta A");
+        }
+
+       if (dealer2==11)
+        {
+            printf("\nDealerova druha karta J");
+        }
+         if (dealer2 == 12)
+        {
+            printf("\nDealerova druha karta Q");
+        }
+         if (dealer2 == 13)
+        {
+            printf("\nDealerova druha karta K");
+        }
+           if (dealer2 < 11 && dealer2 > 1)
+        {
+           printf("\nDealerova druha karta: %d,", dealer2);
+        }
+
+          // J Q K = 10
+       if (dealer1 > 10)
+        {
+           dealer1 = 10;
+        }
+       if (dealer2 > 10)
+        {
+           dealer2 = 10;
+        }
+
+if (dealer1 == 1)
+        {
+            dealer1 = 11;
+            esoDealer++;
+        }
+
+        if (dealer2 == 1)
+        {
+            dealer2 = 11;
+            esoDealer++;
+        }
+        dealer = dealer1 + dealer2;
+
+        while (dealer > 21 && esoDealer > 0)
+        {
+            dealer -= 10;
+            esoDealer--;
+        }
+
+
+       // printf("\nDealerove karty: %d, %d", dealer1, dealer2);
         printf("   Dokopy: %d\n", dealer);
 
         while (dealer < 16)
@@ -247,16 +315,39 @@ if (karta2 == 1)
             int novaDealer = rand() % 13 + 1;
 
 
+//hned
 
-            if (novaDealer > 10)
-            {
-                novaDealer = 10;
-            }
             if (novaDealer == 1)
-            {
-                novaDealer = 11;
-                esoDealer++;
-            }
+        {
+            printf("\nDealer potiahol: A\n");
+        }
+
+       if (novaDealer==11)
+        {
+            printf("\nDealer potiahol: J\n");
+        }
+         if (novaDealer == 12)
+        {
+            printf("\nDealer potiahol: Q\n");
+        }
+         if (novaDealer == 13)
+        {
+            printf("\nDealer potiahol: K\n");
+        }
+           if (novaDealer < 11 && novaDealer > 1)
+        {
+           printf("\nDealer potiahol: %d\n", novaDealer);
+        }
+
+         if (novaDealer > 10)
+        {
+           novaDealer = 10;
+        }
+         if (novaDealer == 1)
+        {
+            novaDealer = 11;
+            esoDealer++;
+        }
 
             dealer += novaDealer;
 
@@ -266,7 +357,7 @@ if (karta2 == 1)
                 esoDealer--;
             }
 
-            printf("Dealer potiahol: %d\n", novaDealer);
+            //printf("Dealer potiahol: %d\n", novaDealer);
             printf("Dealer ma: %d\n", dealer);
         }
 
