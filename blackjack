@@ -3,7 +3,7 @@
 
 int main()
 {
-     printf("\nHazardne hry predstavuju riziko vysokych financnych strat a ich nadmerne hranie riziko vzniku zavislosti\n");// to som opisal z TIPSPORT reklami
+     printf("\nHazardne hry predstavuju riziko vysokych financnych strat a ich nadmerne hranie riziko vzniku zavislosti\n");// to som opisal z TIPSPORT reklamy
 
 
     srand(time(NULL));
